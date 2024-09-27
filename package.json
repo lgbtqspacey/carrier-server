@@ -1,0 +1,134 @@
+{
+  "name": "carrier",
+  "version": "0.0.1",
+  "description": "Social media publishing platform",
+  "main": "src/app.ts",
+  "_moduleAliases": {
+    "src": "./build/src/"
+  },
+  "engines": {
+    "node": "20"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lgbtqspacey/carrier-server.git"
+  },
+  "homepage": "https://github.com/lgbtqspacey/carrier-server#readme",
+  "bugs": {
+    "url": "https://github.com/lgbtqspacey/carrier-server/issues"
+  },
+  "author": "Ash Trindade",
+  "contributors": [
+    {
+      "name": "Ash Trindade",
+      "url": "https://github.com/ashtrindade"
+    }
+  ],
+  "scripts": {
+    "debug": "npm run build && npm run dev",
+    "dev": "nodemon -r tsconfig-paths/register src/app.ts",
+    "start": "node build/src/app.js",
+    "test": "jest --verbose ./test",
+    "test:coverage": "jest --verbose ./test --coverage",
+    "build": "tsc",
+    "lint": "npx eslint . --fix",
+    "deps:reset": "rm -rf node_modules && rm package-lock.json && npm install",
+    "deps:fix": "ts-node src/tools/dependencyLinter.ts",
+    "clear:build": "rm -rf build",
+    "clear:coverage": "rm -rf coverage",
+    "clear:deps": "rm -rf node_modules && rm package-lock.json",
+    "prepare": "husky",
+    "i18n": "typesafe-i18n"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "3.1.0",
+    "@eslint/js": "9.11.1",
+    "@types/cors": "2.8.17",
+    "@types/express": "4.17.21",
+    "@types/jest": "29.5.13",
+    "@types/jsonwebtoken": "9.0.6",
+    "@types/module-alias": "2.0.4",
+    "@types/node": "22.5.4",
+    "@types/nodemailer": "6.4.15",
+    "@types/passport-jwt": "4.0.1",
+    "@types/swagger-ui-express": "4.1.6",
+    "@typescript-eslint/eslint-plugin": "8.3.0",
+    "@typescript-eslint/parser": "8.5.0",
+    "chai": "5.1.1",
+    "cypress": "13.14.1",
+    "eslint": "9.9.1",
+    "globals": "15.9.0",
+    "husky": "9.1.6",
+    "jest": "29.7.0",
+    "nodemon": "3.0.2",
+    "ts-jest": "29.2.5",
+    "ts-node": "10.9.2",
+    "tsconfig-paths": "4.2.0",
+    "typescript": "5.6.2"
+  },
+  "dependencies": {
+    "@sentry/node": "8.30.0",
+    "@sentry/profiling-node": "8.30.0",
+    "cors": "2.8.5",
+    "dotenv": "16.4.5",
+    "express": "5.0.0",
+    "express-rate-limit": "7.4.0",
+    "firebase-admin": "12.3.0",
+    "joi": "17.13.3",
+    "jsonwebtoken": "9.0.2",
+    "mongodb": "6.9.0",
+    "passport": "0.7.0",
+    "passport-jwt": "4.0.1",
+    "swagger-ui-express": "5.0.0",
+    "typesafe-i18n": "5.26.2",
+    "uuidv4": "6.2.13"
+  },
+  "nodemonConfig": {
+    "watch": [
+      "src"
+    ],
+    "ext": ".ts, .js",
+    "ignore": []
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "modulePathIgnorePatterns": [
+      "build",
+      "coverage"
+    ],
+    "coverageReporters": [
+      "text",
+      "cobertura"
+    ],
+    "coveragePathIgnorePatterns": [
+      "src/app.ts",
+      "src/i18n/*",
+      "src/router/*",
+      "src/controller/*",
+      "src/tools/dependencyLinter.ts",
+      "src/tools/security/Passport.ts"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.ts",
+      "!**/node_modules/**"
+    ],
+    "rootDir": ".",
+    "modulePaths": [
+      "<rootDir>"
+    ],
+    "transform": {
+      "^.+\\.ts$": [
+        "ts-jest",
+        {
+          "isolatedModules": true
+        }
+      ]
+    }
+  },
+  "overrides": {
+    "glob": "9.0.0"
+  },
+  "private": true
+}

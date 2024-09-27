@@ -1,0 +1,55 @@
+site_name: Carrier
+site_description: Social media publishing platform
+site_author: Ash Trindade
+
+repo_name: GitHub
+repo_url: https://github.com/lgbtqspacey/carrier-server
+
+docs_dir: pages
+site_dir: site
+
+nav:
+  - Home: index.md
+
+theme:
+  name: material
+  icon:
+    repo: fontawesome/brands/github
+    admonition:
+      type: material/alert-circle
+  logo: assets/icon-pombo-50.png
+  favicon: assets/icon-pombo-50.png
+
+  palette:
+    # Default color palette
+    - scheme: default
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+      primary: blue
+      accent: indigo
+
+    # Palette toggle for dark mode
+    - scheme: slate
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+      primary: blue
+      accent: indigo
+
+  features:
+    - navigation.footer
+    - navigation.top
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/ashtrindade
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid

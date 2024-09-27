@@ -1,0 +1,32 @@
+name: Run Jest Tests
+
+on: push
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v2
+
+    - name: Use Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '20'
+
+    - name: Install dependencies
+      run: npm ci
+    
+    # - name: Create env file
+    #   run: |
+    #     touch .env
+    #     echo CIPHER_KEY=${{ secrets.CIPHER_KEY }} >> .env
+
+    - name: Run Jest tests
+      run: npx jest --verbose ./test/unit/ --coverage
+
+    # - name: Upload coverage reports to Codecov
+    #   uses: codecov/codecov-action@v4.0.1
+    #   with:
+    #     token: ${{ secrets.CODECOV_TOKEN }}
