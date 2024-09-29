@@ -10,6 +10,8 @@ site_dir: site
 
 nav:
   - Home: index.md
+  - Contribute: contribute/guide.md
+  - Code of Conduct: contribute/code-of-conduct.md
 
 theme:
   name: material
@@ -53,3 +55,28 @@ markdown_extensions:
       custom_fences:
         - name: mermaid
           class: mermaid
+
+plugins:
+  - i18n:
+      reconfigure_search: true
+      docs_structure: folder
+      languages:
+        # default language, do not remove
+        - locale: en
+          default: true
+          link: /carrier-server/en/
+          name: English
+          build: true
+
+        # translations
+        - locale: pt
+          name: Português (PT-BR)
+          link: /carrier-server/pt/
+          build: true
+          site_description: Plataforma de publicação em redes sociais
+          nav:
+            - Início: index.md
+            - Contribua: contribute/guide.md
+            - Código de Conduta: contribute/code-of-conduct.md
+
+        # add more languages below this line
