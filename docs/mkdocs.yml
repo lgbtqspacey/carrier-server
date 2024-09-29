@@ -57,6 +57,10 @@ markdown_extensions:
           class: mermaid
 
 plugins:
+  - social:
+    cards_layout: default
+    cache: false
+
   - i18n:
       reconfigure_search: true
       docs_structure: folder
