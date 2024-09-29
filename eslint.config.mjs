@@ -9,60 +9,61 @@ import { FlatCompat } from '@eslint/eslintrc'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 const compat = new FlatCompat({
-  baseDirectory: __dirname,
-  recommendedConfig: js.configs.recommended,
-  allConfig: js.configs.all,
+    baseDirectory: __dirname,
+    recommendedConfig: js.configs.recommended,
+    allConfig: js.configs.all,
 })
 
 export default [
-  ...compat.extends('eslint:recommended', 'plugin:@typescript-eslint/recommended'),
-  {
-    files: ['**/.eslintrc.{js,cjs}'],
-    languageOptions: {
-      globals: {
-        ...globals.node,
-      },
-      parser: tsParser,
-      ecmaVersion: 5,
-      sourceType: 'commonjs',
+    ...compat.extends('eslint:recommended', 'plugin:@typescript-eslint/recommended'),
+    {
+        files: ['**/.eslintrc.{js,cjs}'],
+        languageOptions: {
+            globals: {
+                ...globals.node,
+            },
+            parser: tsParser,
+            ecmaVersion: 5,
+            sourceType: 'commonjs',
+        },
     },
-  },
-  {
-    ignores: [
-      'node_module/*',
-      'build/*',
-      '**/tsconfig.json',
-      'scripts/*',
-      'src/i18n/i18n-*',
-    ],
-  },
-  {
-    plugins: {
-      '@typescript-eslint': typescriptEslint,
+    {
+        ignores: [
+            'node_module/*',
+            'build/*',
+            '**/tsconfig.json',
+            'scripts/*',
+            'src/i18n/i18n-*',
+        ],
     },
+    {
+        plugins: {
+            '@typescript-eslint': typescriptEslint,
+        },
 
-    rules: {
-      indent: ['error', 2, {
-        SwitchCase: 1,
-      }],
-      quotes: ['error', 'single'],
-      semi: ['error', 'never'],
-      'linebreak-style': ['error', 'unix'],
-      'comma-dangle': ['error', 'always-multiline'],
-      'eol-last': ['error', 'always'],
-      'no-warning-comments': ['warn', {
-        terms: ['TODO', 'FIX'],
-        location: 'start',
-      }],
-      '@typescript-eslint/no-unused-vars': ['error', {
-        args: 'all',
-        argsIgnorePattern: '^_',
-        caughtErrors: 'all',
-        caughtErrorsIgnorePattern: '^_',
-        destructuredArrayIgnorePattern: '^_',
-        varsIgnorePattern: '^_',
-        ignoreRestSiblings: true,
-      }],
+        rules: {
+            indent: ['error', 4, {
+                SwitchCase: 1,
+            }],
+            quotes: ['error', 'single'],
+            semi: ['error', 'never'],
+            'linebreak-style': ['error', 'unix'],
+            'comma-dangle': ['error', 'only-multiline'],
+            'max-len': ['error', { 'code': 120 }],
+            'eol-last': ['error', 'always'],
+            'no-warning-comments': ['warn', {
+                terms: ['TODO', 'FIX'],
+                location: 'start',
+            }],
+            '@typescript-eslint/no-unused-vars': ['error', {
+                args: 'all',
+                argsIgnorePattern: '^_',
+                caughtErrors: 'all',
+                caughtErrorsIgnorePattern: '^_',
+                destructuredArrayIgnorePattern: '^_',
+                varsIgnorePattern: '^_',
+                ignoreRestSiblings: true,
+            }],
+        },
     },
-  },
 ]

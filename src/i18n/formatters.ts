@@ -3,9 +3,9 @@ import type { Locales, Formatters } from './i18n-types'
 
 export const initFormatters: FormattersInitializer<Locales, Formatters> = (_locale: Locales) => {
 
-  const formatters: Formatters = {
+    const formatters: Formatters = {
     // add your formatter functions here
-  }
+    }
 
-  return formatters
+    return formatters
 }
