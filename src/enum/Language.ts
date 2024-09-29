@@ -1,7 +1,7 @@
 enum Language {
-  PT_BR = 'pt-br',
-  EN = 'en',
-  ES = 'es',
+    PT_BR = 'pt-br',
+    EN = 'en',
+    ES = 'es',
 }
 
 export default Language

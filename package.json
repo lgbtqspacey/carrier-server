@@ -39,7 +39,8 @@
     "clear:coverage": "rm -rf coverage",
     "clear:deps": "rm -rf node_modules && rm package-lock.json",
     "prepare": "husky",
-    "i18n": "typesafe-i18n"
+    "i18n": "typesafe-i18n",
+    "swagger": "ts-node src/tools/swaggerGen.ts"
   },
   "devDependencies": {
     "@eslint/eslintrc": "3.1.0",
@@ -61,6 +62,7 @@
     "husky": "9.1.6",
     "jest": "29.7.0",
     "nodemon": "3.1.7",
+    "swagger-autogen": "2.23.7",
     "ts-jest": "29.2.5",
     "ts-node": "10.9.2",
     "tsconfig-paths": "4.2.0",
